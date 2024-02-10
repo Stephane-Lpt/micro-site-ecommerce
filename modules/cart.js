@@ -9,7 +9,7 @@ class Cart{
         if(itemAlreadyInItem){
             itemAlreadyInItem.qty++;
         }else{
-            this.contenu.push({product: product, qty:1});
+            this.content.push({product: product, qty:1});
         }
     }
 }

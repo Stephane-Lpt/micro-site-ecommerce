@@ -1,3 +1,5 @@
+import {cart} from "./cart.js";
+
 function displayProduct(product) {
     let productBox = document.createElement('div');
     productBox.className = "product";
@@ -16,6 +18,14 @@ function displayProduct(product) {
                             ${product.description}
 						</div>
 					</div>`;
+
+
+    let iconCart = productBox.querySelector(".product-add2cart");
+    productBox.addEventListener("click", (event) => {
+        cart.addToCart(product);
+        console.log("produit ajouté !");
+    });
+
     document.getElementById("product-list").appendChild(productBox);
 }
 
@@ -26,6 +36,10 @@ function buildProductsList(products){
     for(let product of products){
         displayProduct(product);
     }
+}
+
+function displayCart(){
+    
 }
 
 export default buildProductsList;
