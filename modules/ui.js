@@ -20,6 +20,9 @@ function displayProduct(product) {
 }
 
 function buildProductsList(products){
+    let productsList = document.getElementById("product-list");
+    while(productsList.firstChild) productsList.removeChild(productsList.firstChild);
+
     for(let product of products){
         displayProduct(product);
     }
