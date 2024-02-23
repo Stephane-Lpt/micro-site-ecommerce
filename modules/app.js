@@ -1,5 +1,6 @@
 import {products, search} from "./products.js";
-import buildProductsList from "./ui.js";
+import {buildProductsList, displayCart} from "./ui.js";
+import {cart} from "./cart.js";
 
 function init(){
     buildProductsList(products);
@@ -10,6 +11,13 @@ function init(){
             let searchedProducts = search(searchField.value);
             buildProductsList(searchedProducts);
         }
+    });
+
+
+    let emptyCartLink = document.getElementById("empty-cart");
+    emptyCartLink.addEventListener("click", (event) => {
+        cart.emptyCart();
+        displayCart();
     });
 }
 

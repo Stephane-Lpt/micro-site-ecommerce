@@ -1,3 +1,4 @@
+import {displayCart} from './ui.js';
 class Cart{
     constructor(){
         this.content =  [];
@@ -11,6 +12,15 @@ class Cart{
         }else{
             this.content.push({product: product, qty:1});
         }
+        displayCart();
+    }
+
+    genericCalc(callback, initialValue) {
+        return this.content.reduce(callback, initialValue);
+    }
+
+    emptyCart(){
+        this.content = [];
     }
 }
 

@@ -38,9 +38,18 @@ function buildProductsList(products){
     }
 }
 
-function displayCart(){
-    
+function displayCart() {
+    const cartTable = document.getElementById('cart-content');
+    const totalProducts = document.getElementById('total-products');
+    const cartTotal = document.getElementById('cart-total');
+
+    let tableContent = cart.content.map(item => `<tr><td>${item.product.ref}</td><td>${item.qty}</td><td>${item.product.price}</td></tr>`).reduce((a, b) => a + b, '');
+    cartTable.innerHTML = tableContent;
+
+    let totalPrice = cart.genericCalc((total, item) => total + (item.qty * item.product.price), 0);
+    cartTotal.textContent = totalPrice + ' €';
+    totalProducts.textContent = cart.content.length;
 }
 
-export default buildProductsList;
+export {buildProductsList, displayCart};
 
