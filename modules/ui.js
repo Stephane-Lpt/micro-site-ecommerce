@@ -33,10 +33,12 @@ function displayProduct(product, callback) {
 
 // Affiche tous les produits de la liste passée en paramètre
 function buildProductsList(products, callback){
+    // On vide la liste de produits avant de la remplir à nouveau (pour éviter les doublons)
     let productsList = document.getElementById("product-list");
     while(productsList.firstChild) productsList.removeChild(productsList.firstChild);
 
     for(let product of products){
+        // Pour chaque produit, on appelle la fonction displayProduct
         displayProduct(product, callback);
     }
 }

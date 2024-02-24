@@ -5,9 +5,10 @@ class Cart{
         this.content =  JSON.parse(localStorage.getItem('cart')) || [];
     }
 
+    // Ajoute d'un produit au panier
     addToCart(product){
         // On vérifie si le produit est déjà dans le panier
-        let itemAlreadyInItem = this.content.find(item => item.product.ref === product.ref);
+        let itemAlreadyInItem = this.content.find(item => item.product.ref === product.ref); // Je vérifie bien la référence du produit et non pas l'objet en lui-même.
 
         // Si le produit est déjà dans le panier, on incrémente la quantité
         if(itemAlreadyInItem){

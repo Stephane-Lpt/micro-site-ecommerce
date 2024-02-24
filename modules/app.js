@@ -2,6 +2,7 @@ import {products, search} from "./products.js";
 import {buildProductsList, displayCart} from "./ui.js";
 import {cart} from "./cart.js";
 
+// Fonction d'initialisation de l'application
 function init(){
 
     // Fonctionnalité : Ajout de produits au panier (la fonction est une callback passée à buildProductsList qui sera appelée lorsqu'on cliquera sur l'icône "ajouter au panier")

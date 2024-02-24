@@ -1,4 +1,5 @@
 class Product{
+    // Constructeur de la classe Product (un produit est caractérisé par une référence, un prix, une description et une photo)
     constructor(ref, price, description, photo){
         this.ref = ref;
         this.price = price;
