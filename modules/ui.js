@@ -1,6 +1,6 @@
 import {cart} from "./cart.js";
 
-// Affiche un produit dans la liste de produits
+// Génère la boîte produit et l'ajoute à la liste de produits
 function displayProduct(product, callback) {
 
     // Création de la boîte produit
@@ -31,6 +31,7 @@ function displayProduct(product, callback) {
     document.getElementById("product-list").appendChild(productBox);
 }
 
+// Affiche tous les produits de la liste passée en paramètre
 function buildProductsList(products, callback){
     let productsList = document.getElementById("product-list");
     while(productsList.firstChild) productsList.removeChild(productsList.firstChild);
@@ -40,6 +41,7 @@ function buildProductsList(products, callback){
     }
 }
 
+// Affiche le panier avec son contenu (référence, quantité, prix) et son total
 function displayCart() {
     const cartTable = document.getElementById('cart-content');
     const totalProducts = document.getElementById('total-products');

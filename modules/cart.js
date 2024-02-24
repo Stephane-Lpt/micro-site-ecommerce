@@ -7,7 +7,7 @@ class Cart{
 
     addToCart(product){
         // On vérifie si le produit est déjà dans le panier
-        let itemAlreadyInItem = this.content.find(item => item.product === product);
+        let itemAlreadyInItem = this.content.find(item => item.product.ref === product.ref);
 
         // Si le produit est déjà dans le panier, on incrémente la quantité
         if(itemAlreadyInItem){
@@ -16,11 +16,11 @@ class Cart{
             this.content.push({product: product, qty:1}); // Sinon, on ajoute le produit au panier
         }
 
-        // On actualise la vue du panier
-        displayCart();
-
         // On sauvegarde le panier dans le localStorage
         localStorage.setItem('cart', JSON.stringify(this.content));
+
+        // On actualise la vue du panier
+        displayCart();
     }
 
     // Renvoie le total du panier
