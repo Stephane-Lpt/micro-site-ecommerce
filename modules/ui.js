@@ -1,6 +1,6 @@
 import {cart} from "./cart.js";
 
-function displayProduct(product) {
+function displayProduct(product, callback) {
     let productBox = document.createElement('div');
     productBox.className = "product";
     productBox.innerHTML = `<div class="photo">
@@ -21,7 +21,7 @@ function displayProduct(product) {
 
 
     let iconCart = productBox.querySelector(".product-add2cart");
-    productBox.addEventListener("click", (event) => {
+    iconCart.addEventListener("click", (event) => {
         cart.addToCart(product);
         console.log("produit ajouté !");
     });
@@ -29,7 +29,7 @@ function displayProduct(product) {
     document.getElementById("product-list").appendChild(productBox);
 }
 
-function buildProductsList(products){
+function buildProductsList(products, callback){
     let productsList = document.getElementById("product-list");
     while(productsList.firstChild) productsList.removeChild(productsList.firstChild);
 
