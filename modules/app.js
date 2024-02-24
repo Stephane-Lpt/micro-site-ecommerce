@@ -3,7 +3,10 @@ import {buildProductsList, displayCart} from "./ui.js";
 import {cart} from "./cart.js";
 
 function init(){
-    buildProductsList(products);
+    buildProductsList(products, function (product) {
+        cart.addToCart(product);
+        console.log("produit ajouté !");
+    });
 
     let searchField = document.getElementById("product-search");
     searchField.addEventListener("keyup", (event) => {

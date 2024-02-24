@@ -22,8 +22,7 @@ function displayProduct(product, callback) {
 
     let iconCart = productBox.querySelector(".product-add2cart");
     iconCart.addEventListener("click", (event) => {
-        cart.addToCart(product);
-        console.log("produit ajouté !");
+        callback(product);
     });
 
     document.getElementById("product-list").appendChild(productBox);
@@ -34,7 +33,7 @@ function buildProductsList(products, callback){
     while(productsList.firstChild) productsList.removeChild(productsList.firstChild);
 
     for(let product of products){
-        displayProduct(product);
+        displayProduct(product, callback);
     }
 }
 
